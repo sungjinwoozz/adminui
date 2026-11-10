@@ -14,13 +14,15 @@ const mainMenu = [
   "Dashboard",
   "ตรวจสลิป",
   "จัดการ User",
-  "เติม Token",
-  "สแกนบัตรเข้างาน",
   "ตั้งราคา",
   "จัดการร้านค้า",
   "Report",
   "Audit Log",
-  "มุมมองร้านค้า",
+  "สแกนบัตรเข้างาน",
+  "เติม Token",
+  "ร้านค้า",
+  "สแกนตัด TOKEN ของร้านค้า"
+
 ];
 
 function MenuList({
@@ -48,14 +50,14 @@ function MenuList({
 export default function Home() {
   return (
     <SidebarProvider
-      className="bg-[#0A1628]"
+      className="bg-[#0a1220] bg-transparent-70% "
       style={{ "--sidebar-width": "220px" } as CSSProperties}
     >
       <Sidebar className="border-r border-[#263c57] bg-[#0F2038] px-3.75 py-5.5">
         <div className="flex items-center gap-2.5 px-1.25">
           <div className="size-7.5 rounded-lg bg-[#49a5fb]" />
           <div className="text-[14px] font-semibold text-white">
-            Reunion Admin
+            Admin UI
           </div>
         </div>
 
