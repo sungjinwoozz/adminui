@@ -31,11 +31,11 @@ function MenuList({
   active?: boolean;
 }) {
   return (
-    <SidebarMenu className="gap-[1px]">
+    <SidebarMenu className="gap-px">
       {items.map((item, index) => (
         <SidebarMenuItem key={item}>
           <SidebarMenuButton
-            className={`h-10 rounded-[7px] px-[10px] text-[13px] font-medium text-[#a6b8cc] hover:bg-[#19395e] hover:text-white ${active && index === 0 ? "bg-[#19395e] text-white" : ""}`}
+            className={`h-10 rounded-[7px] px-2.5 text-[13px] font-medium text-[#a6b8cc] hover:bg-[#19395e] hover:text-white ${active && index === 0 ? "bg-[#19395e] text-white" : ""}`}
           >
             {item}
           </SidebarMenuButton>
@@ -51,21 +51,21 @@ export default function Home() {
       className="bg-[#0A1628]"
       style={{ "--sidebar-width": "220px" } as CSSProperties}
     >
-      <Sidebar className="border-r border-[#263c57] bg-[#0F2038] px-[15px] py-[22px]">
-        <div className="flex items-center gap-[10px] px-[5px]">
-          <div className="size-[30px] rounded-[8px] bg-[#49a5fb]" />
+      <Sidebar className="border-r border-[#263c57] bg-[#0F2038] px-3.75 py-5.5">
+        <div className="flex items-center gap-2.5 px-1.25">
+          <div className="size-7.5 rounded-lg bg-[#49a5fb]" />
           <div className="text-[14px] font-semibold text-white">
             Reunion Admin
           </div>
         </div>
 
-        <SidebarContent className="mt-[22px] overflow-hidden px-0">
+        <SidebarContent className="mt-5.5 overflow-hidden px-0">
           <SidebarGroup className="px-0">
             <SidebarGroupContent>
               <MenuList items={mainMenu} />
             </SidebarGroupContent>
           </SidebarGroup>
-          <SidebarGroup className="mt-[18px] px-0">
+          <SidebarGroup className="mt-4.5 px-0">
             <SidebarGroupContent></SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
