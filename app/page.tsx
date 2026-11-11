@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import AdminMenu, { type AppPage } from "@/components/admin-menu";
+import AdminMenu from "@/components/admin-menu";
 import CheckSlipContent from "@/components/check-slip-content";
 import DashboardContent from "@/components/dashboard-content";
 import {
@@ -18,17 +18,20 @@ import {
   AvatarImage,
 } from "@/components/tailgrids/core/avatar";
 
+
 export default function Home() {
-  const [activePage, setActivePage] = useState<AppPage>("dashboard");
+  const [activePage, setActivePage] = useState("dashboard");
 
   let content = <DashboardContent/>;
 
   if (activePage === "check-slip") {
     content = <CheckSlipContent />;
   } else if (activePage !== "dashboard") {
-  }
+    content = <DashboardContent/>;
+  } 
 
   return (
+    
     <SidebarProvider
       className="bg-[#0a1220]"
       style={{ "--sidebar-width": "220px" } as CSSProperties}
@@ -39,7 +42,8 @@ export default function Home() {
           <span className="text-[14px] font-semibold text-white">Admin UI</span>
         </div>
 
-        <SidebarContent className="mt-5.5 overflow-hidden px-0">
+        
+        <SidebarContent className="mt-10 overflow-hidden px-0 ">
           <SidebarGroup className="px-0">
             <SidebarGroupContent>
               <AdminMenu activePage={activePage} onSelect={setActivePage} />
@@ -47,6 +51,7 @@ export default function Home() {
           </SidebarGroup>
         </SidebarContent>
 
+        {/* โปรไฟล์ */}
         <Avatar className="mx-auto" size="md">
           <AvatarImage src="/docs/images/avatar/avatar-1.webp" />
           <AvatarFallback></AvatarFallback>
@@ -54,6 +59,7 @@ export default function Home() {
         </Avatar>
       </Sidebar>
 
+      
       {content}
     </SidebarProvider>
   );
