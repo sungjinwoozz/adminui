@@ -21,7 +21,7 @@ import {
 export default function Home() {
   const [activePage, setActivePage] = useState<AppPage>("dashboard");
 
-  let content = <DashboardContent />;
+  let content = <DashboardContent/>;
 
   if (activePage === "check-slip") {
     content = <CheckSlipContent />;
@@ -49,7 +49,7 @@ export default function Home() {
 
         <Avatar className="mx-auto" size="md">
           <AvatarImage src="/docs/images/avatar/avatar-1.webp" />
-          <AvatarFallback>J</AvatarFallback>
+          <AvatarFallback></AvatarFallback>
           <AvatarBadge status="online" size="lg" ping />
         </Avatar>
       </Sidebar>
