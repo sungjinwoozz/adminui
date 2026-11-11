@@ -13,10 +13,12 @@
     "@floating-ui/react": "^0.27.20",
     "@tailgrids/icons": "^2.0.1",
     "@tailwindcss/vite": "^4.3.5",
+    "apexcharts": "^8.8.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "next": "16.4.6",
     "react": "19.3.0",
+    "react-apexcharts": "^2.2.0",
     "react-aria-components": "^1.22.1",
     "react-dom": "19.3.0",
     "tailwind-merge": "^3.7.0"

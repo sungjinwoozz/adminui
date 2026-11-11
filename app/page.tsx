@@ -2,8 +2,12 @@
 
 import { useState, type CSSProperties } from "react";
 import AdminMenu from "@/components/admin-menu";
+import AuditLogContent from "@/components/audit-log-content";
 import CheckSlipContent from "@/components/check-slip-content";
 import DashboardContent from "@/components/dashboard-content";
+import ReportContent from "@/components/report-content";
+import StoreManagementContent from "@/components/store-management-content";
+import UserManagementContent from "@/components/user-management-content";
 import {
   Sidebar,
   SidebarContent,
@@ -25,10 +29,18 @@ export default function Home() {
   let content = <DashboardContent/>;
 
   if (activePage === "check-slip") {
-    content = <CheckSlipContent />;
-  } else if (activePage !== "dashboard") {
-    content = <DashboardContent/>;
-  } 
+  content = <CheckSlipContent />;
+} else if (activePage === "audit-log") {
+  content = <AuditLogContent />;
+} else if (activePage === "report") {
+  content = <ReportContent />;
+} else if (activePage === "stores") {
+  content = <StoreManagementContent />;
+} else if (activePage === "users") {
+  content = <UserManagementContent />;
+} else if (activePage === "dashboard") {
+  content = <DashboardContent />;
+}
 
   return (
     
@@ -52,11 +64,17 @@ export default function Home() {
         </SidebarContent>
 
         {/* โปรไฟล์ */}
-        <Avatar className="mx-auto" size="md">
-          <AvatarImage src="/docs/images/avatar/avatar-1.webp" />
-          <AvatarFallback></AvatarFallback>
-          <AvatarBadge status="online" size="lg" ping />
-        </Avatar>
+        <div className="mt-auto flex w-full items-center gap-3 px-1.25">
+          <Avatar className="shrink-0" size="md">
+            <AvatarImage src="/docs/images/avatar/avatar-1.webp" />
+            <AvatarFallback>A</AvatarFallback>
+            <AvatarBadge status="online" size="lg" ping />
+          </Avatar>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-semibold text-white">Admin</p>
+            <p className="truncate text-xs text-[#8fa6c2]">ผู้ดูแลระบบ</p>
+          </div>
+        </div>
       </Sidebar>
 
       
