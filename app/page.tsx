@@ -4,6 +4,7 @@ import { useState, type CSSProperties } from "react";
 import AdminMenu from "@/components/admin-menu";
 import AuditLogContent from "@/components/audit-log-content";
 import BlankPageContent from "@/components/blank-page-content";
+import CheckSlipContent from "@/components/check-slip-content";
 import DashboardContent from "@/components/dashboard-content";
 import ReportContent from "@/components/report-content";
 import StoreManagementContent from "@/components/store-management-content";
@@ -28,7 +29,7 @@ export default function Home() {
   let content = <DashboardContent />;
 
   if (activePage === "check-slip") {
-    content = <BlankPageContent />;
+    content = <CheckSlipContent />;
   } else if (activePage === "audit-log") {
     content = <AuditLogContent />;
   } else if (activePage === "report") {
