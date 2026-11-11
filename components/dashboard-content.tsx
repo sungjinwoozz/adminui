@@ -41,7 +41,7 @@ export default function DashboardContent() {
             </div>
 
             <div className="mt-5 overflow-x-auto">
-              <table className="w-full min-w-[520px] border-collapse text-left text-">
+              <table className="w-full min-w-130 border-collapse text-left text-">
 
                 <thead>
                   <tr className="border-b border-[#244466] text-[#8fa6c2]">

@@ -23,7 +23,7 @@ export default function StoreManagementContent() {
         <section className="mt-6 grid gap-4 xl:grid-cols-[minmax(0,1.6fr)_minmax(300px,1fr)]">
           <div className="overflow-hidden rounded-2xl border border-[#244466] bg-[#10233d] p-3 sm:p-4">
             <div className="overflow-x-auto">
-              <TableRoot className="w-full min-w-[520px] border-[#244466] text-left text-sm">
+              <TableRoot className="w-full min-w-130 border-[#244466] text-left text-sm">
                 <TableHeader>
                   <TableRow className="border-b border-[#244466] text-[#8fa6c2]">
                     <TableHead className="px-2 pb-3 font-normal">ร้านค้า</TableHead>

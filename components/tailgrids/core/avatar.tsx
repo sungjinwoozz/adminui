@@ -67,22 +67,7 @@ export function Avatar({
   );
 }
 
-export interface AvatarImageProps extends AvatarPrimitive.Image.Props {}
-
-export function AvatarImage({ className, ...props }: AvatarImageProps) {
-  return (
-    <AvatarPrimitive.Image
-      data-slot="avatar-image"
-      className={cn(
-        "size-full aspect-square rounded-full object-cover flex items-center",
-        className
-      )}
-      {...props}
-    />
-  );
-}
-
-export interface AvatarFallbackProps extends AvatarPrimitive.Fallback.Props {}
+export type AvatarFallbackProps = AvatarPrimitive.Fallback.Props;
 
 export function AvatarFallback({ className, ...props }: AvatarFallbackProps) {
   return (
@@ -138,50 +123,3 @@ export function AvatarBadge({
   );
 }
 
-export function AvatarGroup({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="avatar-group"
-      role="group"
-      className={cn(
-        "group/avatar-group flex -space-x-2 *:data-[slot=avatar]:ring-[1.5px] *:data-[slot=avatar]:ring-background-50",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function AvatarGroupCount({
-  className,
-  size = "md",
-  children,
-  "aria-label": ariaLabel,
-  ...props
-}: React.ComponentProps<"div"> & { size?: "xs" | "sm" | "md" }) {
-  const computedLabel =
-    ariaLabel ??
-    (typeof children === "string" ? `${children} more` : undefined);
-
-  return (
-    <div
-      data-slot="avatar-group-count"
-      data-size={size}
-      aria-label={computedLabel}
-      className={cn(
-        "relative flex shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-500 ring-[1.5px] ring-background-50",
-        sizeClasses[size],
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}

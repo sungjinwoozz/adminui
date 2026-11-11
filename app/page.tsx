@@ -3,7 +3,7 @@
 import { useState, type CSSProperties } from "react";
 import AdminMenu from "@/components/admin-menu";
 import AuditLogContent from "@/components/audit-log-content";
-import CheckSlipContent from "@/components/check-slip-content";
+import BlankPageContent from "@/components/blank-page-content";
 import DashboardContent from "@/components/dashboard-content";
 import ReportContent from "@/components/report-content";
 import StoreManagementContent from "@/components/store-management-content";
@@ -19,28 +19,27 @@ import {
   Avatar,
   AvatarBadge,
   AvatarFallback,
-  AvatarImage,
 } from "@/components/tailgrids/core/avatar";
 
 
 export default function Home() {
   const [activePage, setActivePage] = useState("dashboard");
 
-  let content = <DashboardContent/>;
+  let content = <DashboardContent />;
 
   if (activePage === "check-slip") {
-  content = <CheckSlipContent />;
-} else if (activePage === "audit-log") {
-  content = <AuditLogContent />;
-} else if (activePage === "report") {
-  content = <ReportContent />;
-} else if (activePage === "stores") {
-  content = <StoreManagementContent />;
-} else if (activePage === "users") {
-  content = <UserManagementContent />;
-} else if (activePage === "dashboard") {
-  content = <DashboardContent />;
-}
+    content = <BlankPageContent />;
+  } else if (activePage === "audit-log") {
+    content = <AuditLogContent />;
+  } else if (activePage === "report") {
+    content = <ReportContent />;
+  } else if (activePage === "stores") {
+    content = <StoreManagementContent />;
+  } else if (activePage === "users") {
+    content = <UserManagementContent />;
+  } else if (["Token", "scan-qr", "pricing", "shop", "scan-qr-shop"].includes(activePage)) {
+    content = <BlankPageContent />;
+  }
 
   return (
     
@@ -66,7 +65,6 @@ export default function Home() {
         {/* โปรไฟล์ */}
         <div className="mt-auto flex w-full items-center gap-3 px-1.25">
           <Avatar className="shrink-0" size="md">
-            <AvatarImage src="/docs/images/avatar/avatar-1.webp" />
             <AvatarFallback>A</AvatarFallback>
             <AvatarBadge status="online" size="lg" ping />
           </Avatar>
