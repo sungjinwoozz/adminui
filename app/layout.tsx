@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nextjstemplates | Dashboard",
-  description: "A TailGrids-style admin dashboard layout",
+  title: "ADMIN UI",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
