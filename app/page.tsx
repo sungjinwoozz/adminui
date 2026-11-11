@@ -1,15 +1,14 @@
-import type { CSSProperties } from "react";
+"use client";
+
+import { useState, type CSSProperties } from "react";
+import MenuListClient from "@/components/tailgrids/core/menu-list-client";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarProvider,
 } from "@/components/tailgrids/core/sidebar";
-
 import {
   Avatar,
   AvatarBadge,
@@ -17,44 +16,11 @@ import {
   AvatarImage,
 } from "@/components/tailgrids/core/avatar";
 import Dashboard from "./dashboard/page";
-
-const mainMenu = [
-  "Dashboard",
-  "ตรวจสลิป",
-  "จัดการ User",
-  "ตั้งราคา",
-  "จัดการร้านค้า",
-  "Report",
-  "Audit Log",
-  "สแกนบัตรเข้างาน",
-  "เติม Token",
-  "ร้านค้า",
-  "สแกนตัด TOKEN ของร้านค้า",
-];
-
-function MenuList({
-  items,
-  active = false,
-}: {
-  items: string[];
-  active?: boolean;
-}) {
-  return (
-    <SidebarMenu className="gap-px">
-      {items.map((item, index) => (
-        <SidebarMenuItem key={item}>
-          <SidebarMenuButton
-            className={`h-10 rounded-[7px] px-2.5 text-[13px] font-medium text-[#a6b8cc] hover:bg-[#19395e] hover:text-white ${active && index === 0 ? "bg-[#19395e] text-white" : ""}`}
-          >
-            {item}
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      ))}
-    </SidebarMenu>
-  );
-}
+import CheckSlipPage from "./check-slip/page";
 
 export default function Home() {
+  const [activePage, setActivePage] = useState("dashboard");
+
   return (
     <SidebarProvider
       className="bg-[#0a1220] bg-transparent-70%"
@@ -69,11 +35,8 @@ export default function Home() {
         <SidebarContent className="mt-5.5 overflow-hidden px-0">
           <SidebarGroup className="px-0">
             <SidebarGroupContent>
-              <MenuList items={mainMenu} />
+              <MenuListClient activePage={activePage} onSelect={setActivePage} />
             </SidebarGroupContent>
-          </SidebarGroup>
-          <SidebarGroup className="mt-4.5 px-0">
-            <SidebarGroupContent />
           </SidebarGroup>
         </SidebarContent>
 
@@ -84,7 +47,13 @@ export default function Home() {
         </Avatar>
       </Sidebar>
 
-      <Dashboard />
+      {activePage === "dashboard" && <Dashboard />}
+      {activePage === "check-slip" && <CheckSlipPage />}
+      {!["dashboard", "check-slip"].includes(activePage) && (
+        <main className="min-h-svh min-w-0 flex-1 bg-[#0A1628] p-8 text-white">
+          <h1 className="text-3xl font-semibold">กำลังเตรียมหน้านี้</h1>
+        </main>
+      )}
     </SidebarProvider>
   );
 }
